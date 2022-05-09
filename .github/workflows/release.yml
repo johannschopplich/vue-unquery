@@ -17,7 +17,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2.2.1
 
-      - name: Set node
+      - name: Use Node.js v16
         uses: actions/setup-node@v2
         with:
           node-version: 16.x
@@ -26,21 +26,21 @@ jobs:
       - name: Install Dependencies
         run: pnpm install
 
-      - name: PNPM build
+      - name: pnpm Build
         run: pnpm run build
 
-      - name: Publish to NPM
+      - name: Publish to npm
         run: pnpm -r publish --access public --no-git-checks
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Release Notes
         run: npx changelogen@latest > ${{ github.workspace }}-CHANGELOG.md
 
-      - name: Trim Release Notes and debug
+      - name: Trim Release Notes
         run: sed -i '1d;2d' ${{ github.workspace }}-CHANGELOG.md && cat ${{ github.workspace }}-CHANGELOG.md
 
-      - name: Push release
+      - name: Push Release
         uses: softprops/action-gh-release@v1
         with:
           body_path: ${{ github.workspace }}-CHANGELOG.md

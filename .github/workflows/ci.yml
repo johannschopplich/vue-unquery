@@ -20,7 +20,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2.2.1
 
-      - name: Set node
+      - name: Use Node.js v16
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
