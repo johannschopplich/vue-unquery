@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - '**/README.md'
 
   pull_request:
     branches:
@@ -27,17 +25,27 @@ jobs:
           cache: pnpm
 
       - name: Install
-        run: pnpm i
+        run: pnpm install
 
       - name: Lint
-        run: pnpm lint
+        run: pnpm run lint
 
-      - name: Commit
-        uses: EndBug/add-and-commit@v4
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js v16
+        uses: actions/setup-node@v3
         with:
-          message: 'chore: lint'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          node-version: 16.x
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install
+
+      - name: Typecheck
+        run: pnpm run typecheck
 
   test:
     runs-on: ${{ matrix.os }}
@@ -51,20 +59,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2.2.1
-
-      - name: Set node ${{ matrix.node }}
+      - name: Set Node.js ${{ matrix.node }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
           cache: pnpm
 
       - name: Install
-        run: pnpm i
+        run: pnpm install
 
       - name: Build
-        run: pnpm build
+        run: pnpm run build
 
       - name: Test
-        run: pnpm test
+        run: pnpm run test
