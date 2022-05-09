@@ -15,20 +15,19 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2.2.1
-
       - name: Use Node.js v16
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
-          cache: pnpm
+
+      - name: Setup
+        run: npm i -g @antfu/ni
 
       - name: Install
-        run: pnpm install
+        run: nci
 
       - name: Lint
-        run: pnpm run lint
+        run: nr lint
 
   typecheck:
     runs-on: ubuntu-latest
@@ -39,13 +38,15 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
-          cache: pnpm
+
+      - name: Setup
+        run: npm i -g @antfu/ni
 
       - name: Install
-        run: pnpm install
+        run: nci
 
       - name: Typecheck
-        run: pnpm run typecheck
+        run: nr typecheck
 
   test:
     runs-on: ${{ matrix.os }}
@@ -59,17 +60,19 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set Node.js ${{ matrix.node }}
+      - name: Set Node.js v${{ matrix.node }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-          cache: pnpm
+
+      - name: Setup
+        run: npm i -g @antfu/ni
 
       - name: Install
-        run: pnpm install
+        run: nci
 
       - name: Build
-        run: pnpm run build
+        run: nr build
 
       - name: Test
-        run: pnpm run test
+        run: nr test
