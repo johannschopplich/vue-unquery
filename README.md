@@ -4,7 +4,7 @@
 
 > Lightweight asynchronous data management for Vue.
 
-Basically an identical fork of [TurboVue](https://github.com/StudioLambda/TurboVue), but also suited for non-suspense setups.
+Basically an identical fork of [TurboVue](https://github.com/StudioLambda/TurboVue), but also suited for non-suspense setups. All the credits to [Erik C. Forés](https://github.com/ConsoleTVs) for his amazing work.
 
 ## Key Features
 
