@@ -97,23 +97,39 @@ export async function createQueryResource<T = any>(
       if (!key)
         return
 
-      const unsubscribeMutate = turboSubscribe<T>(key, 'mutated', (item) => {
-        resource.value = item
-      })
+      const unsubscribeMutate = turboSubscribe<T>(
+        key,
+        'mutated',
+        (item) => {
+          resource.value = item
+        },
+      )
 
-      const unsubscribeRefetching = turboSubscribe<T>(key, 'refetching', () => {
-        isRefetching.value = true
-      })
+      const unsubscribeRefetching = turboSubscribe<T>(
+        key,
+        'refetching',
+        () => {
+          isRefetching.value = true
+        },
+      )
 
-      const unsubscribeResolved = turboSubscribe<T>(key, 'resolved', (item) => {
-        isRefetching.value = false
-        resource.value = item
-      })
+      const unsubscribeResolved = turboSubscribe<T>(
+        key,
+        'resolved',
+        (item) => {
+          isRefetching.value = false
+          resource.value = item
+        },
+      )
 
-      const unsubscribeErrors = turboSubscribe<unknown>(key, 'error', (e) => {
-        isRefetching.value = false
-        error.value = e
-      })
+      const unsubscribeErrors = turboSubscribe<unknown>(
+        key,
+        'error',
+        (e) => {
+          isRefetching.value = false
+          error.value = e
+        },
+      )
 
       resource.value = await turboQuery<T>(key, {
         stale: true,
@@ -224,23 +240,39 @@ export function useQuery<T = any>(
       if (!key)
         return
 
-      const unsubscribeMutate = turboSubscribe<T>(key, 'mutated', (item) => {
-        resource.value = item
-      })
+      const unsubscribeMutate = turboSubscribe<T>(
+        key,
+        'mutated',
+        (item) => {
+          resource.value = item
+        },
+      )
 
-      const unsubscribeRefetching = turboSubscribe<T>(key, 'refetching', () => {
-        isRefetching.value = true
-      })
+      const unsubscribeRefetching = turboSubscribe<T>(
+        key,
+        'refetching',
+        () => {
+          isRefetching.value = true
+        },
+      )
 
-      const unsubscribeResolved = turboSubscribe<T>(key, 'resolved', (item) => {
-        isRefetching.value = false
-        resource.value = item
-      })
+      const unsubscribeResolved = turboSubscribe<T>(
+        key,
+        'resolved',
+        (item) => {
+          isRefetching.value = false
+          resource.value = item
+        },
+      )
 
-      const unsubscribeErrors = turboSubscribe<unknown>(key, 'error', (e) => {
-        isRefetching.value = false
-        error.value = e
-      })
+      const unsubscribeErrors = turboSubscribe<unknown>(
+        key,
+        'error',
+        (e) => {
+          isRefetching.value = false
+          error.value = e
+        },
+      )
 
       resource.value = await turboQuery<T>(key, {
         stale: true,
