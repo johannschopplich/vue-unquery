@@ -2,29 +2,30 @@
   "name": "vue-unquery",
   "type": "module",
   "version": "0.1.6",
-  "packageManager": "pnpm@7.1.0",
+  "packageManager": "pnpm@7.1.7",
   "description": "",
-  "keywords": [],
-  "homepage": "https://github.com/johannschopplich/vue-unquery#readme",
-  "bugs": {
-    "url": "https://github.com/johannschopplich/vue-unquery/issues"
-  },
-  "license": "MIT",
   "author": "Johann Schopplich <https://github.com/johannschopplich>",
+  "license": "MIT",
+  "homepage": "https://github.com/johannschopplich/vue-unquery#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/johannschopplich/vue-unquery.git"
   },
+  "bugs": {
+    "url": "https://github.com/johannschopplich/vue-unquery/issues"
+  },
+  "keywords": [],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
-    }
-  },
   "typesVersions": {
     "*": {
       "*": [
@@ -36,7 +37,6 @@
   "files": [
     "dist"
   ],
-  "sideEffects": false,
   "scripts": {
     "build": "unbuild",
     "dev": "unbuild --stub",
@@ -53,16 +53,16 @@
     "turbo-query": "^1.7.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.23.1",
-    "@types/node": "^17.0.34",
+    "@antfu/eslint-config": "^0.25.0",
+    "@types/node": "^17.0.36",
     "bumpp": "^7.1.1",
-    "eslint": "^8.15.0",
-    "pnpm": "^7.1.0",
-    "typescript": "^4.6.4",
+    "eslint": "^8.16.0",
+    "pnpm": "^7.1.7",
+    "typescript": "^4.7.2",
     "unbuild": "^0.7.4",
     "vite": "^2.9.9",
-    "vitest": "^0.12.6",
-    "vue": "^3.2.33",
-    "vue-tsc": "^0.34.15"
+    "vitest": "^0.13.0",
+    "vue": "^3.2.36",
+    "vue-tsc": "^0.35.0"
   }
 }
