@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.1.6",
   "packageManager": "pnpm@7.1.7",
-  "description": "",
+  "description": "Lightweight asynchronous data management for Vue",
   "author": "Johann Schopplich <https://github.com/johannschopplich>",
   "license": "MIT",
   "homepage": "https://github.com/johannschopplich/vue-unquery#readme",
@@ -63,6 +63,6 @@
     "vite": "^2.9.9",
     "vitest": "^0.13.0",
     "vue": "^3.2.36",
-    "vue-tsc": "^0.35.0"
+    "vue-tsc": "^0.35.2"
   }
 }
