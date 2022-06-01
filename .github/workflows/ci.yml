@@ -20,6 +20,8 @@ jobs:
         with:
           node-version: 16.x
 
+      - run: corepack enable
+
       - name: Setup
         run: npm i -g @antfu/ni
 
@@ -38,6 +40,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
+
+      - run: corepack enable
 
       - name: Setup
         run: npm i -g @antfu/ni
@@ -64,6 +68,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
+
+      - run: corepack enable
 
       - name: Setup
         run: npm i -g @antfu/ni
