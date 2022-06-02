@@ -17,7 +17,7 @@ All the credits to [Erik C. Forés](https://github.com/ConsoleTVs) for his amazi
 
 ## Usage
 
-## Suspense Context
+### Suspense Context
 
 ```ts
 const [post, { isRefetching, refetch, mutate, error }] = await useAsyncQuery<Post>(
@@ -25,7 +25,7 @@ const [post, { isRefetching, refetch, mutate, error }] = await useAsyncQuery<Pos
 )
 ```
 
-## Non-Suspense Context
+### Non-Suspense Context
 
 ```ts
 const [post, { isRefetching, refetch, mutate, error }] = useQuery<Post>(
@@ -33,13 +33,16 @@ const [post, { isRefetching, refetch, mutate, error }] = useQuery<Post>(
 )
 ```
 
-### Prevent Initial Fetching with `immediate: false`
+Prevent initial data fetching with `immediate: false`:
 
 ```ts
 const [post, { isRefetching, refetch, mutate, error }] = useQuery<Post>(
   () => `https://jsonplaceholder.typicode.com/posts/${props.id}`,
   { immediate: false }
 )
+
+// Later, call:
+refetch()
 ```
 
 ## License
