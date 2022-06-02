@@ -10,8 +10,37 @@ All the credits to [Erik C. Forés](https://github.com/ConsoleTVs) for his amazi
 
 ## Key Features
 
-- Non-suspense usage via `useQuery`
-- Support for lazy fetching via `immediate: false` option
+- 🎠 Create a query resource:
+  - Suspense contexts: `useAsyncQuery`
+  - Non-suspense contexts: `useQuery`
+- ⛲️ Support for lazy fetching via `immediate: false` option in non-suspense environments
+
+## Usage
+
+## Suspense Context
+
+```ts
+const [post, { isRefetching, refetch, mutate, error }] = await useAsyncQuery<Post>(
+  () => `https://jsonplaceholder.typicode.com/posts/${props.id}`,
+)
+```
+
+## Non-Suspense Context
+
+```ts
+const [post, { isRefetching, refetch, mutate, error }] = useQuery<Post>(
+  () => `https://jsonplaceholder.typicode.com/posts/${props.id}`,
+)
+```
+
+### Prevent Initial Fetching with `immediate: false`
+
+```ts
+const [post, { isRefetching, refetch, mutate, error }] = useQuery<Post>(
+  () => `https://jsonplaceholder.typicode.com/posts/${props.id}`,
+  { immediate: false }
+)
+```
 
 ## License
 

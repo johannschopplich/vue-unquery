@@ -18,7 +18,7 @@ export function injectQueryOptions(value?: TurboVueOptions) {
  * Creates a new query resource with the given key and options
  * for suspense usage.
  */
-export async function createQueryResource<T = any>(
+export async function useAsyncQuery<T = any>(
   key: TurboVueKey,
   options?: TurboVueOptions,
 ): Promise<TurboVueResource<T>> {
