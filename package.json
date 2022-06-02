@@ -1,7 +1,7 @@
 {
   "name": "vue-unquery",
   "type": "module",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "packageManager": "pnpm@7.1.7",
   "description": "Lightweight asynchronous data management for Vue",
   "author": "Johann Schopplich <pkg@johannschopplich.com>",
