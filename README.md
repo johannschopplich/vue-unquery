@@ -1,8 +1,8 @@
-# vue-unquery
+# 🪺 vue-unquery
 
 [![NPM version](https://img.shields.io/npm/v/vue-unquery?color=a1b858&label=)](https://www.npmjs.com/package/vue-unquery)
 
-> Lightweight asynchronous data management for Vue.
+> Lightweight data management for Vue in suspense & non-suspense contexts.
 
 Basically an identical fork of [TurboVue](https://github.com/StudioLambda/TurboVue), but also suited for non-suspense setups.
 
