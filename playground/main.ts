@@ -7,7 +7,7 @@ configure({
     await new Promise(resolve => setTimeout(resolve, 2000))
     const response = await fetch(key, { signal })
     if (!response.ok)
-      throw new Error('There was an error')
+      throw new Error('Fetch request failed')
     return await response.json()
   },
 })
