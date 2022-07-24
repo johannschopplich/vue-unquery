@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "lib": ["ESNext", "DOM"],
+    "lib": ["ESNext", "DOM", "ScriptHost"],
     "jsx": "preserve",
     "module": "ESNext",
     "moduleResolution": "Node",
     "paths": {
       "vue-unquery": ["./src/index.ts"]
     },
-    "types": ["vitest"],
+    "types": ["vite/client", "vitest"],
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
