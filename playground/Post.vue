@@ -26,7 +26,7 @@ const [post, { isRefetching, refetch, mutate, error }] = useQuery<Post>(
       </button>
     </div>
     <p>{{ post?.body }}</p>
-    <button :disabled="isRefetching" @click="() => refetch({ fresh: true })">
+    <button :disabled="isRefetching" @click="refetch()">
       {{ isRefetching ? 'Refetching...' : 'Refetch' }}
     </button>
     <button @click="() => mutate((current) => ({ ...current!, title: 'Random title here' }))">

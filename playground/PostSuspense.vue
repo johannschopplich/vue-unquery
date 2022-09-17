@@ -12,7 +12,8 @@ interface Post {
 }
 
 const [post, { isRefetching, refetch, mutate }] = await useAsyncQuery<Post>(
-  () => `https://jsonplaceholder.typicode.com/posts/${props.id}`,
+  // The `suspense=true` query is added for different query key than the non-supense one
+  () => `https://jsonplaceholder.typicode.com/posts/${props.id}?suspense=true`,
 )
 </script>
 
@@ -20,7 +21,7 @@ const [post, { isRefetching, refetch, mutate }] = await useAsyncQuery<Post>(
   <div>
     <h2>{{ post?.title }}</h2>
     <p>{{ post?.body }}</p>
-    <button :disabled="isRefetching" @click="() => refetch({ fresh: true })">
+    <button :disabled="isRefetching" @click="refetch()">
       {{ isRefetching ? 'Refetching...' : 'Refetch' }}
     </button>
     <button @click="() => mutate((current) => ({ ...current!, title: 'Random title here' }))">

@@ -20,7 +20,7 @@ export function injectQueryOptions(value?: TurboVueOptions) {
  */
 export async function useAsyncQuery<T = any>(
   key: TurboVueKey,
-  options?: TurboVueOptions,
+  options?: Omit<TurboVueOptions, 'immediate'>,
 ): Promise<TurboVueResource<T>> {
   const contextOptions = injectQueryOptions()
   const turboQuery = options?.turbo?.query ?? contextOptions?.turbo?.query ?? query
