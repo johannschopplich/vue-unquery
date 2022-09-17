@@ -164,12 +164,13 @@ export async function useAsyncQuery<T = any>(
    * Creates a signal that every given pricesion interval
    * will determine if the current key is currently expired / stale
    * and how many time needs to pass till its considered expired / stale.
-   * This function helps creating
-   * the controlled sigal on demand rather than creating
-   * arbitrary signals ourselves just in case.
-   * Return value is [isStale, staleIn]
+   * This function helps creating the controlled sigal on demand
+   * rather than creating arbitrary signals ourselves just in case.
+   * Return value is [`isStale`, `staleIn`]
    */
-  function createStale(precision: number): [Readonly<Ref<boolean>>, Readonly<Ref<number>>] {
+  function createStale(
+    precision: number,
+  ): [Readonly<Ref<boolean>>, Readonly<Ref<number>>] {
     const now = new Date()
     const initialKey = computedKey.value
 
@@ -461,12 +462,13 @@ export function useQuery<T = any>(
    * Creates a signal that every given pricesion interval
    * will determine if the current key is currently expired / stale
    * and how many time needs to pass till its considered expired / stale.
-   * This function helps creating
-   * the controlled sigal on demand rather than creating
-   * arbitrary signals ourselves just in case.
-   * Return value is [isStale, staleIn]
+   * This function helps creating the controlled sigal on demand
+   * rather than creating arbitrary signals ourselves just in case.
+   * Return value is [`isStale`, `staleIn`]
    */
-  function createStale(precision: number): [Readonly<Ref<boolean>>, Readonly<Ref<number>>] {
+  function createStale(
+    precision: number,
+  ): [Readonly<Ref<boolean>>, Readonly<Ref<number>>] {
     const now = new Date()
     const initialKey = computedKey.value
 

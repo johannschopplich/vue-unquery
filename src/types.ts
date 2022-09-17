@@ -1,4 +1,8 @@
-import type { TurboMutateValue, TurboQuery, TurboQueryOptions } from 'turbo-query'
+import type {
+  TurboMutateValue,
+  TurboQuery,
+  TurboQueryOptions,
+} from 'turbo-query'
 import type { Ref } from 'vue'
 
 export interface TurboVueOptions extends TurboQueryOptions {
@@ -114,7 +118,9 @@ export interface TurboVueResourceActions<T> {
    * arbitrary refs ourselves just in case.
    * Return value is [isStale (readonly ref), staleIn (readonly ref)]
    */
-  readonly createStale: (precision: number) => [Readonly<Ref<boolean>>, Readonly<Ref<number>>]
+  readonly createStale: (
+    precision: number
+  ) => [Readonly<Ref<boolean>>, Readonly<Ref<number>>]
 }
 
 export type TurboVueResource<T> = [
@@ -133,4 +139,3 @@ export type TurboVueResource<T> = [
  * Determines how a Vue key looks like.
  */
 export type TurboVueKey = () => string | false | null
-
