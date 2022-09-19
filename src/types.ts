@@ -21,7 +21,7 @@ export interface TurboVueOptions extends TurboQueryOptions {
 
   /**
    * Determines if it should refetch keys when
-   * the window regains focus.
+   * the connection is restored.
    * @default true
    */
   readonly refetchOnConnect?: boolean

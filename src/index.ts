@@ -117,11 +117,11 @@ export async function useAsyncQuery<T = any>(
   }
 
   function onConnect(listener: () => void): () => void {
-    if (refetchOnConnect && typeof window !== 'undefined') {
-      window.addEventListener('online', listener)
-      return () => window.removeEventListener('online', listener)
-    }
-    return () => {}
+    if (!refetchOnConnect || typeof window === 'undefined')
+      return () => {}
+
+    window.addEventListener('online', listener)
+    return () => window.removeEventListener('online', listener)
   }
 
   function createFocusAvailable(
@@ -415,11 +415,11 @@ export function useQuery<T = any>(
   }
 
   function onConnect(listener: () => void): () => void {
-    if (refetchOnConnect && typeof window !== 'undefined') {
-      window.addEventListener('online', listener)
-      return () => window.removeEventListener('online', listener)
-    }
-    return () => {}
+    if (!refetchOnConnect || typeof window === 'undefined')
+      return () => {}
+
+    window.addEventListener('online', listener)
+    return () => window.removeEventListener('online', listener)
   }
 
   function createFocusAvailable(
