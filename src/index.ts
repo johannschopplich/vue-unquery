@@ -10,10 +10,6 @@ export const injectionKey = Symbol(
   'vue-unquery-context',
 ) as InjectionKey<TurboVueOptions>
 
-export function injectQueryOptions(value?: TurboVueOptions) {
-  return inject(injectionKey, value)
-}
-
 /**
  * Creates a new query resource with the given key and options
  * for suspense usage.
@@ -22,7 +18,7 @@ export async function useAsyncQuery<T = any>(
   key: TurboVueKey,
   options?: Omit<TurboVueOptions, 'immediate'>,
 ): Promise<TurboVueResource<T>> {
-  const contextOptions = injectQueryOptions()
+  const contextOptions = inject(injectionKey)
   const turboQuery = options?.turbo?.query ?? contextOptions?.turbo?.query ?? query
   const turboMutate = options?.turbo?.mutate ?? contextOptions?.turbo?.mutate ?? mutate
   const turboSubscribe = options?.turbo?.subscribe ?? contextOptions?.turbo?.subscribe ?? subscribe
@@ -327,7 +323,7 @@ export function useQuery<T = any>(
   key: TurboVueKey,
   options?: TurboVueOptions,
 ): TurboVueResource<T> {
-  const contextOptions = injectQueryOptions()
+  const contextOptions = inject(injectionKey)
   const turboQuery = options?.turbo?.query ?? contextOptions?.turbo?.query ?? query
   const turboMutate = options?.turbo?.mutate ?? contextOptions?.turbo?.mutate ?? mutate
   const turboSubscribe = options?.turbo?.subscribe ?? contextOptions?.turbo?.subscribe ?? subscribe
