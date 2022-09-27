@@ -2,7 +2,7 @@ import { abort, expiration, forget, mutate, query, subscribe } from 'turbo-query
 import { computed, getCurrentInstance, inject, onUnmounted, readonly, ref, watch } from 'vue'
 import type { TurboMutateValue } from 'turbo-query'
 import type { InjectionKey, Ref } from 'vue'
-import type { TurboVueKey, TurboVueOptions, TurboVueResource } from './types'
+import type { TurboVueOptions, TurboVueResource } from './types'
 
 export * from './types'
 
@@ -15,7 +15,7 @@ export const injectionKey = Symbol(
  * for suspense usage.
  */
 export async function useAsyncQuery<T = any>(
-  key: TurboVueKey,
+  key: () => string | false | null,
   options?: Omit<TurboVueOptions, 'immediate'>,
 ): Promise<TurboVueResource<T>> {
   const contextOptions = inject(injectionKey)
@@ -157,12 +157,13 @@ export async function useAsyncQuery<T = any>(
   }
 
   /**
-   * Creates a signal that every given pricesion interval
-   * will determine if the current key is currently expired / stale
-   * and how many time needs to pass till its considered expired / stale.
-   * This function helps creating the controlled sigal on demand
+   * Creates a signal that every given precision interval
+   * will determine if the current key is currently expired/stale
+   * and how many time needs to pass till its considered expired/stale.
+   *
+   * This function helps creating the controlled signal on demand
    * rather than creating arbitrary signals ourselves just in case.
-   * Return value is [`isStale`, `staleIn`]
+   * Return value is `[isStale, staleIn]`
    */
   function createStale(
     precision: number,
@@ -320,7 +321,7 @@ export async function useAsyncQuery<T = any>(
  * Creates a new query resource with the given key and options.
  */
 export function useQuery<T = any>(
-  key: TurboVueKey,
+  key: () => string | false | null,
   options?: TurboVueOptions,
 ): TurboVueResource<T> {
   const contextOptions = inject(injectionKey)
@@ -455,12 +456,13 @@ export function useQuery<T = any>(
   }
 
   /**
-   * Creates a signal that every given pricesion interval
-   * will determine if the current key is currently expired / stale
-   * and how many time needs to pass till its considered expired / stale.
-   * This function helps creating the controlled sigal on demand
+   * Creates a signal that every given precision interval
+   * will determine if the current key is currently expired/stale
+   * and how many time needs to pass till its considered expired/stale.
+   *
+   * This function helps creating the controlled signal on demand
    * rather than creating arbitrary signals ourselves just in case.
-   * Return value is [`isStale`, `staleIn`]
+   * Return value is `[isStale, staleIn]`
    */
   function createStale(
     precision: number,

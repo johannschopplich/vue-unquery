@@ -110,13 +110,13 @@ export interface TurboVueResourceActions<T> {
   readonly expiration: () => Date | undefined
 
   /**
-   * Creates a signal that every given pricesion interval
-   * will determine if the current key is currently expired / stale
-   * and how many time needs to pass till its considered expired / stale.
-   * This function helps creating
-   * the controlled ref on demand rather than creating
-   * arbitrary refs ourselves just in case.
-   * Return value is [isStale (readonly ref), staleIn (readonly ref)]
+   * Creates a signal that every given precision interval
+   * will determine if the current key is currently expired/stale
+   * and how many time needs to pass till its considered expired/stale.
+   *
+   * This function helps creating the controlled signal on demand
+   * rather than creating arbitrary signals ourselves just in case.
+   * Return value is `[isStale, staleIn]`
    */
   readonly createStale: (
     precision: number
@@ -134,8 +134,3 @@ export type TurboVueResource<T> = [
    */
   TurboVueResourceActions<T>,
 ]
-
-/**
- * Determines how a Vue key looks like.
- */
-export type TurboVueKey = () => string | false | null
