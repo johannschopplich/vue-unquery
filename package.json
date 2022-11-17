@@ -2,7 +2,7 @@
   "name": "vue-unquery",
   "type": "module",
   "version": "0.3.4",
-  "packageManager": "pnpm@7.16.0",
+  "packageManager": "pnpm@7.16.1",
   "description": "Lightweight data management for Vue in suspense & non-suspense contexts",
   "author": "Johann Schopplich <pkg@johannschopplich.com>",
   "license": "MIT",
@@ -33,8 +33,8 @@
     "dev": "unbuild --stub",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "release": "bumpp --commit --push --tag",
-    "test:types": "vue-tsc --noEmit"
+    "test:types": "vue-tsc --noEmit",
+    "release": "bumpp --commit --push --tag"
   },
   "peerDependencies": {
     "vue": "^3"
