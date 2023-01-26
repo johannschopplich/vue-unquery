@@ -47,6 +47,6 @@ refetch()
 
 ## License
 
-[MIT](./LICENSE) License © 2022 [Johann Schopplich](https://github.com/johannschopplich)
+[MIT](./LICENSE) License © 2022-2023 [Johann Schopplich](https://github.com/johannschopplich)
 
 [MIT](./LICENSE) License © 2022 [Erik C. Forés](https://github.com/ConsoleTVs)
