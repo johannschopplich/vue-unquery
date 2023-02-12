@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-import { Suspense, onErrorCaptured, ref } from 'vue'
+import { onErrorCaptured, ref } from 'vue'
 import Post from './Post.vue'
 import PostSuspense from './PostSuspense.vue'
 
 const error = ref<unknown>()
 const current = ref(1)
 
-onErrorCaptured((e) => {
-  error.value = e
+onErrorCaptured((err) => {
+  error.value = err
   return false
 })
 
