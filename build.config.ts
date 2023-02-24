@@ -6,9 +6,6 @@ export default defineBuildConfig({
   ],
   declaration: true,
   clean: true,
-  replace: {
-    'import.meta.vitest': 'false',
-  },
   rollup: {
     emitCJS: true,
   },
