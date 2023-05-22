@@ -2,7 +2,7 @@
   "name": "vue-unquery",
   "type": "module",
   "version": "0.3.4",
-  "packageManager": "pnpm@8.1.0",
+  "packageManager": "pnpm@8.5.1",
   "description": "Lightweight data management for Vue in suspense & non-suspense contexts",
   "author": "Johann Schopplich <pkg@johannschopplich.com>",
   "license": "MIT",
@@ -19,7 +19,6 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs",
       "import": "./dist/index.mjs"
     }
   },
@@ -43,15 +42,15 @@
     "turbo-query": "^1.9.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.38.0",
-    "@types/node": "^18.15.11",
-    "@vitejs/plugin-vue": "^4.1.0",
+    "@antfu/eslint-config": "^0.39.1",
+    "@types/node": "^18.16.14",
+    "@vitejs/plugin-vue": "^4.2.3",
     "bumpp": "^9.1.0",
-    "eslint": "^8.37.0",
-    "typescript": "^5.0.2",
-    "unbuild": "^1.1.2",
-    "vite": "^4.2.1",
-    "vue": "^3.2.47",
-    "vue-tsc": "^1.2.0"
+    "eslint": "^8.41.0",
+    "typescript": "^5.0.4",
+    "unbuild": "^1.2.1",
+    "vite": "^4.3.8",
+    "vue": "^3.3.4",
+    "vue-tsc": "^1.6.5"
   }
 }
