@@ -1,9 +1,9 @@
+import type { Ref } from 'vue'
 import type {
   TurboMutateValue,
   TurboQuery,
   TurboQueryOptions,
-} from 'turbo-query'
-import type { Ref } from 'vue'
+} from './turbo-query'
 
 export interface TurboVueOptions extends TurboQueryOptions {
   /**

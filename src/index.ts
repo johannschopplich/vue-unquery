@@ -1,14 +1,13 @@
-import { abort, expiration, forget, mutate, query, subscribe } from 'turbo-query'
 import { computed, getCurrentInstance, inject, onUnmounted, readonly, ref, watch } from 'vue'
-import type { TurboMutateValue } from 'turbo-query'
 import type { InjectionKey, Ref } from 'vue'
+import { abort, expiration, forget, mutate, query, subscribe } from './turbo-query'
+import type { TurboMutateValue } from './turbo-query'
 import type { TurboVueOptions, TurboVueResource } from './types'
 
+export { configure } from './turbo-query'
 export * from './types'
 
-export const injectionKey = Symbol(
-  'vue-unquery-context',
-) as InjectionKey<TurboVueOptions>
+export const injectionKey = Symbol('vue-unquery-context') as InjectionKey<TurboVueOptions>
 
 /**
  * Creates a new query resource with the given key and options

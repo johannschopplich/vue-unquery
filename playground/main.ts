@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import { configure } from 'turbo-query'
+import { configure } from 'vue-unquery'
 import App from './App.vue'
 
 configure({
