@@ -4,7 +4,7 @@ import App from './App.vue'
 
 configure({
   async fetcher(key, { signal }) {
-    await new Promise(resolve => setTimeout(resolve, 2000))
+    // await new Promise(resolve => setTimeout(resolve, 2000))
     const response = await fetch(key, { signal })
     if (!response.ok)
       throw new Error('Fetch request failed')

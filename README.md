@@ -45,6 +45,25 @@ const [post, { isRefetching, refetch, mutate, error }] = useQuery<Post>(
 refetch()
 ```
 
+### Configuration
+
+> **Note**
+>
+> All options from [Turbo Query](./src/turbo-query/README.md) apply.
+
+```ts
+import { configure } from 'vue-unquery'
+
+configure({
+  async fetcher(key, { signal }) {
+    const response = await fetch(key, { signal })
+    if (!response.ok)
+      throw new Error('Fetch request failed')
+    return await response.json()
+  },
+})
+```
+
 ## License
 
 [MIT](./LICENSE) License © 2022-2023 [Johann Schopplich](https://github.com/johannschopplich)
