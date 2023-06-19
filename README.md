@@ -64,6 +64,13 @@ configure({
 })
 ```
 
+## 💻 Development
+
+1. Clone this repository
+2. Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable`
+3. Install dependencies using `pnpm install`
+4. Start development server using `pnpm run dev` inside `playground`
+
 ## License
 
 [MIT](./LICENSE) License © 2022-2023 [Johann Schopplich](https://github.com/johannschopplich)
